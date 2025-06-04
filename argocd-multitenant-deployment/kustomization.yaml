@@ -1,0 +1,37 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: argocd
+
+resources:
+- base/argo-cd-issuer.yaml
+- base/argo-cd-certificate.yaml
+- base/argo-cd-ui-ingress.yaml
+- base/rollouts-extension.yaml
+- overlays/development/application-app-of-apps.yaml
+- overlays/development/appproject.yaml
+#- overlays/development/argocd-secret.yaml
+- overlays/development/argocd-repositories.yaml
+# Dev install
+- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml
+# Prod install
+#- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install.yaml
+
+components:
+- https://github.com/argoproj-labs/argocd-extensions/manifests
+
+patches:
+- path: overlays/development/argo-cd-cm.yaml
+- path: overlays/development/argocd-server-service.yaml
+- path: overlays/development/argocd-notifications-controller-deploy.yaml
+- path: overlays/development/argocd-notifications-cm.yaml
+- path: overlays/development/argocd-cmd-params-cm.yaml
+- path: overlays/development/argocd-rbac-cm.yaml
+#- path: overlays/development/argocd-secret.yaml
+#- path: overlays/development/argocd-repositories.yaml
+- path: https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
+
+images:
+- name: quay.io/argoproj/argocd
+  newName: ghcr.io/argoproj/argo-cd/argocd
+  newTag: 3.1.0-ea97dec6

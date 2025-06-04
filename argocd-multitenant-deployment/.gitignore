@@ -1,0 +1,3 @@
+/argo-cd-auth-secret.yaml
+overlays/development/argocd-secret.yaml
+overlays/development/argocd-repositories.yaml

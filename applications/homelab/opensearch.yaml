@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev-opensearch
+spec:
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      # do not conflict with HPA
+      jsonPointers:
+        - /spec/replicas
+  project: default
+  source:
+    repoURL: https://github.com/chrodrigues/biruleibe.git
+    path: ./biruleibe/opensearch/overlays/homelab
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - PruneLast=true
+    automated:
+      prune: true
+      selfHeal: true
+

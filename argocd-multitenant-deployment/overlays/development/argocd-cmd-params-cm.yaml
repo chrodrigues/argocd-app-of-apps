@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cmd-params-cm
+  labels:
+    app.kubernetes.io/part-of: argocd
+data:
+  server.insecure: "true"
+  # Open-Telemetry collector address: (e.g. "otel-collector:4317")
+  #otlp.address: ""
+  # Open-Telemetry collector insecure: (e.g. "true")
+  #otlp.insecure: "true"
+  # Open-Telemetry collector headers: (e.g. "key1=value1,key2=value2")
+  #otlp.headers: ""
+  # Open-Telemetry collector attrs: (e.g. "key1:value1,key2:value2")
+  #otlp.attrs: ""
