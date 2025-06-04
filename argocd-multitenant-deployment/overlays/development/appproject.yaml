@@ -11,7 +11,7 @@ spec:
     - namespace: '*'
       server: https://kubernetes.default.svc
   sourceRepos:
-    - https://github.com/argocd-app-of-apps.git
+    - https://github.com/chrodrigues/argocd-app-of-apps.git
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
