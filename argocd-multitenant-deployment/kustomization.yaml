@@ -8,7 +8,7 @@ resources:
 - base/argo-cd-certificate.yaml
 - base/argo-cd-ui-ingress.yaml
 - base/rollouts-extension.yaml
-- overlays/development/application-app-of-apps.yaml
+- overlays/development/application-app-of-apps-homelab.yaml
 - overlays/development/appproject.yaml
 #- overlays/development/argocd-secret.yaml
 - overlays/development/argocd-repositories.yaml
