@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  labels:
+    app.kubernetes.io/part-of: argocd
+data:
+  url: https://argo-cd.homelab.local
+  # the URL for getting chat help, this will typically be your Slack channel for support
+  help.chatUrl: "https://homelab.local/argo-cd"
+  # the text for getting chat help, defaults to "Chat now!"
+  help.chatText: "Chat now!"
+  # Optional installation id. Allows to have multiple installations of Argo CD in the same cluster.
+  installationID: "dev-argocd"
+  admin.enabled: 'true'
+  ui.bannercontent: "Hello there, I'm Charles!"
+  # time spent before Argo tries to discover if a new manifests version got published to the repository
+  timeout.reconciliation: 60s
+  timeout.reconciliation.jitter: 120s
+  # The maximum number of pod logs to render in UI.
+  server.maxPodLogsToRender: "20"
+  # Enable web-based terminal
+  exec.enabled: "true"

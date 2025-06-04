@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apps-of-apps
+  namespace: argocd
+spec:
+  project: apps-of-apps
+  source:
+    repoURL: https://github.com/chrodrigues/argocd-app-of-apps.git
+    targetRevision: HEAD
+    path: apps/homelab
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - PruneLast=true
+    automated:
+      prune: true
+      selfHeal: true
