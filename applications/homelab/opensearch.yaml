@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/chrodrigues/biruleibe.git
-    path: ./biruleibe/opensearch/overlays/homelab
+    path: kubernetes/opensearch/overlays/homelab
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
