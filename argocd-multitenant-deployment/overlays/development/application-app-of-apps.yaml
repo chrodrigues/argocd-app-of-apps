@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: apps-of-apps
   namespace: argocd
+  labels:
+    name: apps-of-apps
 spec:
   project: apps-of-apps
   source:
