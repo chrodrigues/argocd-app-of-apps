@@ -14,14 +14,15 @@ spec:
     targetRevision: v1.17.2
     chart: cert-manager
     helm:
-      passCredentials: false
-      parameters:
-        - name: crds.enabled
-          value: "true"
-        - name: prometheus.enabled
-          value: "false"
-        - name: webhook.timeoutSeconds
-          value: "4"
+      values: |-
+        passCredentials: false
+        parameters:
+          - name: crds.enabled
+            value: "true"
+          - name: prometheus.enabled
+            value: "false"
+          - name: webhook.timeoutSeconds
+            value: "4"
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
