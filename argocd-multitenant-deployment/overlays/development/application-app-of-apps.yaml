@@ -1,14 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: homelab
+  name: apps-of-apps
   namespace: argocd
 spec:
   project: apps-of-apps
   source:
+    directory:
+      recurse: true
     repoURL: https://github.com/chrodrigues/argocd-app-of-apps.git
+    path: applications
     targetRevision: HEAD
-    path: applications/homelab
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
