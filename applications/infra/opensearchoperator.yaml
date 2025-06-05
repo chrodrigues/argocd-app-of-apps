@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: opensearch-operator
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: opensearch-operator
+spec:
+  project: default
+  source:
+    repoURL: opensearchproject/opensearch-operator
+    targetRevision: 2.7.0
+    chart: opensearch-operator
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: opensearch-operator
+  syncPolicy:
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - PruneLast=true
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
