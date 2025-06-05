@@ -10,7 +10,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: opensearchproject/opensearch-operator
+    repoURL: https://opensearch-project.github.io/opensearch-k8s-operator/
     targetRevision: 2.7.0
     chart: opensearch-operator
   destination:
