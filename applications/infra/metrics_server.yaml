@@ -13,7 +13,7 @@ spec:
     repoURL: https://kubernetes-sigs.github.io/metrics-server/
     targetRevision: 3.12.2
     chart: metrics-server
-    alues: |
+    values: |
       args:
         - --kubelet-insecure-tls  # Add this to skip TLS verification
   destination:
