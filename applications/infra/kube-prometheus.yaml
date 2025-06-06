@@ -28,7 +28,7 @@ spec:
         - name: "prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage"
           value: "50Gi"
         - name: "grafana.adminPassword"
-          value: "Ch@rles2019!"
+          value: "admin"
         - name: "grafana.persistence.enabled"
           value: "true"
         - name: "grafana.persistence.type"
