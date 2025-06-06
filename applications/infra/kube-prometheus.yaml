@@ -22,7 +22,7 @@ spec:
         - name: "prometheus.prometheusSpec.remoteWriteDashboards"
           value: "false"
         - name: "prometheus.prometheusSpec.retention"
-          value: "30"
+          value: "30d"
         - name: "prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.storageClassName"
           value: "openebs"
         - name: "prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage"
