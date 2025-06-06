@@ -19,7 +19,7 @@ spec:
           - --kubelet-insecure-tls  # Add this to skip TLS verification
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: monitoring
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
