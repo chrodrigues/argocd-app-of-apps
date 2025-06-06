@@ -26,7 +26,7 @@ spec:
         - name: "prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.storageClassName"
           value: "openebs"
         - name: "prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage"
-          value: "50"
+          value: "50Gi"
         - name: "grafana.adminPassword"
           value: "Ch@rles2019!"
         - name: "grafana.persistence.enabled"
@@ -36,7 +36,7 @@ spec:
         - name: "grafana.persistence.storageClassName"
           value: "openebs"
         - name: "grafana.persistence.size"
-          value: "50"
+          value: "50Gi"
           forceString: true # ensures that value is treated as a string
   destination:
     server: https://kubernetes.default.svc
