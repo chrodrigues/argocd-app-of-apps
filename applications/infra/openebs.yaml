@@ -14,7 +14,7 @@ spec:
     targetRevision: 4.2.0
     chart: openebs
     helm:
-      values: |-
+      values: |
         openebs-crds:
           csi:
             volumeSnapshots:
