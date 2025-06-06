@@ -46,6 +46,7 @@ spec:
       - ApplyOutOfSyncOnly=true
       - PruneLast=true
       - CreateNamespace=true
+      - ServerSideApply=true
     automated:
       prune: true
       selfHeal: true
