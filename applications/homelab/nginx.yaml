@@ -9,7 +9,7 @@ metadata:
     #argocd-image-updater.argoproj.io/image-list: ghcr.io/chrodrigues/thingslikethat/nginx
     # use newest-build in production, then you don't set tags in image-list
     # use below for dev environments:
-    argocd-image-updater.argoproj.io/image-list: ghcr.io/chrodrigues/thingslikethat/nginx:latest
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/chrodrigues/thingslikethat/nginx
     argocd-image-updater.argoproj.io/ngix.update-strategy: digest
 
 spec:
