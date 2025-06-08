@@ -5,7 +5,7 @@ metadata:
   labels:
     name: dev-nginx
   annotations:
-    argocd-image-updater.argoproj.io/image-list: ghcr.io/chrodrigues/thingslikethat/nginx:latest
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/chrodrigues/thingslikethat/nginx
     argocd-image-updater.argoproj.io/ngix.update-strategy: newest-build
 spec:
   ignoreDifferences:
