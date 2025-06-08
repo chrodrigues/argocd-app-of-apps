@@ -5,8 +5,13 @@ metadata:
   labels:
     name: dev-nginx
   annotations:
-    argocd-image-updater.argoproj.io/image-list: ghcr.io/chrodrigues/thingslikethat/nginx
-    argocd-image-updater.argoproj.io/ngix.update-strategy: newest-build
+    # use like this for production and the latest tag will be used to deploy to the cluster:
+    #argocd-image-updater.argoproj.io/image-list: ghcr.io/chrodrigues/thingslikethat/nginx
+    # use newest-build in production, then you don't set tags in image-list
+    # use below for dev environments:
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/chrodrigues/thingslikethat/nginx:latest
+    argocd-image-updater.argoproj.io/ngix.update-strategy: digest
+
 spec:
   ignoreDifferences:
     - group: apps
