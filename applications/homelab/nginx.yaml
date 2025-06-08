@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev-nginx
+  labels:
+    name: dev-nginx
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/chrodrigues/thingslikethat/nginx:latest
+    argocd-image-updater.argoproj.io/ngix.update-strategy: newest-build
+spec:
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      # do not conflict with HPA
+      jsonPointers:
+        - /spec/replicas
+  project: default
+  source:
+    repoURL: https://github.com/chrodrigues/biruleibe.git
+    path: kubernetes/task/initContainer
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - PruneLast=true
+    automated:
+      prune: true
+      selfHeal: true
+
